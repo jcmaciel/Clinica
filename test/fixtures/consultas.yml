@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  data: 2010-09-01
+  horario: 2010-09-01 15:10:36
+  preco: 
+  nome_plano: MyString
+  tipo_plano: MyString
+  tipo_consulta: MyString
+
+two:
+  data: 2010-09-01
+  horario: 2010-09-01 15:10:36
+  preco: 
+  nome_plano: MyString
+  tipo_plano: MyString
+  tipo_consulta: MyString

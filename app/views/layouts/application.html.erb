@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>SysClinica</title>
+  <%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/drastic-dark/style", :cache => true %>
+  <%= javascript_include_tag 'jquery-1.3.2' %>
+  <%= javascript_include_tag 'jquery.maskedinput-1.2.2.js'%>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">SysClinica</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <% if user_signed_in? %>
+            <li style="color: #FFF;">Bem vindo, <%= current_user.email %></li>
+            <li><a href="/users/edit"><%= t("web-app-theme.profile", :default => "Perfil") %></a></li>
+            <li><a href="/users/sign_out" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li>
+            <% else %>
+          <li><a href="/users/sign_up"><%= t("web-app-theme.register", :default => "Registrar") %></a></li>
+                      <li><a href="/users/sign_in" class="logout"><%= t("web-app-theme.logout", :default => "Login") %></a></li>
+          <%end%>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf"> <li class="<%= controller.controller_path == 'medicos' ? 'active' : '' %>"><a href="<%= medicos_path %>">Medicos</a></li> <li class="<%= controller.controller_path == 'pacientes' ? 'active' : '' %>"><a href="<%= pacientes_path %>">Pacientes</a></li> <li class="<%= controller.controller_path == 'consultas' ? 'active' : '' %>"><a href="<%= consultas_path %>">Consultas</a></li> <li class="<%= controller.controller_path == 'prontuarios' ? 'active' : '' %>"><a href="<%= prontuarios_path %>">Prontuarios</a></li> <li class="<%= controller.controller_path == 'medicamentos' ? 'active' : '' %>"><a href="<%= medicamentos_path %>">Medicamentos</a></li> <li class="<%= controller.controller_path == 'exames' ? 'active' : '' %>"><a href="<%= exames_path %>">Exames</a></li></ul>
+      </div>
+    </div>
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> SysClinica.</p>
+          </div>
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

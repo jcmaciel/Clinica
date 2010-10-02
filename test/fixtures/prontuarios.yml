@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  motivo: MyString
+  diagnostico: MyString
+  observacao: MyString
+
+two:
+  motivo: MyString
+  diagnostico: MyString
+  observacao: MyString

@@ -1,0 +1,53 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", pacientes_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_paciente_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Mostra")}", paciente_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.paciente.nome", :default => t("activerecord.labels.nome", :default => "Nome")) %>:</b>
+          <%= @paciente.nome %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Endereco")) %>:</b>
+          <%= @paciente.endereco %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.telefone", :default => t("activerecord.labels.telefone", :default => "Telefone")) %>:</b>
+          <%= @paciente.telefone %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.celular", :default => t("activerecord.labels.celular", :default => "Celular")) %>:</b>
+          <%= @paciente.celular %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.rg", :default => t("activerecord.labels.rg", :default => "Rg")) %>:</b>
+          <%= @paciente.rg %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.cpf", :default => t("activerecord.labels.cpf", :default => "Cpf")) %>:</b>
+          <%= @paciente.cpf %>
+        </p>
+      <div class="wat-cf">
+  <% if can? :update, @paciente %>
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}")} #{t("web-app-theme.edit", :default=> "Editar")}", edit_paciente_path(@paciente), :class => "button" %> 
+    <%end%>
+  <% if can? :destroy, @paciente %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Excluir")}")} #{t("web-app-theme.delete", :default => "Excluir")}", paciente_path(@paciente), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Tem certeza que deseja excluir?")}" %>
+      <%end%>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

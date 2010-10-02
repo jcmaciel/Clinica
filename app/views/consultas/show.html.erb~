@@ -1,0 +1,55 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", consultas_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Nova")}", new_consulta_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Mostrar")}", consulta_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.consulta.data", :default => t("activerecord.labels.data", :default => "Data")) %>:</b>
+          <%= @consulta.data %>
+        </p>
+
+
+        <p>
+          <b><%= t("activerecord.attributes.consulta.preco", :default => t("activerecord.labels.preco", :default => "Preco")) %>:</b>
+          <%= @consulta.preco %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.consulta.nome_plano", :default => t("activerecord.labels.nome_plano", :default => "Nome plano")) %>:</b>
+          <%= @consulta.nome_plano %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.consulta.tipo_plano", :default => t("activerecord.labels.tipo_plano", :default => "Tipo plano")) %>:</b>
+          <%= @consulta.tipo_plano %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.consulta.tipo_consulta", :default => t("activerecord.labels.tipo_consulta", :default => "Tipo consulta")) %>:</b>
+          <%= @consulta.tipo_consulta %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.consulta.medico_id", :default => t("activerecord.labels.medico_id", :default => "Medico")) %>:</b>
+          <%= @consulta.medico_id %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.consulta.paciente_id", :default => t("activerecord.labels.paciente_id", :default => "Paciente")) %>:</b>
+          <%= @consulta.paciente_id %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_consulta_path(@consulta), :class => "button" %> 
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Excluir")}")} #{t("web-app-theme.delete", :default => "Delete")}", consulta_path(@consulta), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

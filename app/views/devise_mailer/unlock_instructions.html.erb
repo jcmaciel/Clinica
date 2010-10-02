@@ -1,0 +1,7 @@
+<p>Olá <%= @resource.email %>!</p>
+
+<p>Seu registro foi bloqueado porque você excedeu o número limite de tentativas de login.</p>
+
+<p>Clique no link abaixo para desbloquear seu registro:</p>
+
+<p><%= link_to 'Desbloquear meu registro', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>

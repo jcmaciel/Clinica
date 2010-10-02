@@ -1,0 +1,67 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", consultas_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Novo")}", new_consulta_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "Lista de")  %> Consultas</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+          <th>
+            <%= t("activerecord.attributes.consulta.medico.nome", :default => t("activerecord.labels.data", :default => "Médico")) %>
+          </th>
+          <th>
+            <%= t("activerecord.attributes.consulta.paciente.nome", :default => t("activerecord.labels.data", :default => "Paciente")) %>
+          </th>               
+          <th>
+            <%= t("activerecord.attributes.consulta.data", :default => t("activerecord.labels.data", :default => "Data")) %>
+          </th>
+     <th><%= t("web-app-theme.created_at", :default => "Criado em")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @consultas.each do |consulta| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= consulta.id %>
+          </td>          
+<td>
+            <%= consulta.medico.nome %>
+          </td>            
+<td>
+            <%= consulta.paciente.nome %>
+<<<<<<< HEAD:app/views/consultas/index.html.erb~
+=======
+          </td>          
+          <td>
+            <%= consulta.horario %>
+>>>>>>> 8ab5e6443570716f1a38c15d8fc74e2a92a8d405:app/views/consultas/index.html.erb~
+          </td>
+                    <td>
+            <%= link_to consulta.data.strftime("%d/%m/%Y"), consulta_path(consulta) %>
+          </td>
+                    <td>
+            <%= consulta.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Mostrar")}", consulta_path(consulta) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_consulta_path(consulta) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Excluir")}", consulta_path(consulta), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Tem certeza que deseja excluir?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+<div class="paginacao"><%= will_paginate @consultas %></div>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

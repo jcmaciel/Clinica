@@ -1,0 +1,16 @@
+module PacientesHelper
+  
+ def exibir_ultima_consulta(paciente)
+    if paciente.consultas.empty?
+<<<<<<< HEAD:app/helpers/pacientes_helper.rb
+    "Nunca foi consultado"
+=======
+      puts ("Nunca foi consultado")
+>>>>>>> 8ab5e6443570716f1a38c15d8fc74e2a92a8d405:app/helpers/pacientes_helper.rb
+  else
+   consulta = paciente.consultas.find(:last)
+   consulta.data
+
+ end
+end
+end

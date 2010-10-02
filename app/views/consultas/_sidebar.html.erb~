@@ -1,0 +1,32 @@
+<div class="block">
+  <h3><img class="icones_agenda" src="/images/icones/consulta.png"> Próximas Consultas do dia</h3>
+  <div class="content">
+   <% 
+    proximaConsultas = proximas_consultas
+    proximaConsultas.each do |consulta|
+  %>    
+
+<div id="agenda">
+<img class="icones_agenda" src="/images/icones/paciente.png"><%= consulta.paciente.nome %><br/>
+<img class="icones_agenda" src="/images/icones/medico.png"> <%= consulta.medico.nome %><br/>
+<<<<<<< HEAD:app/views/consultas/_sidebar.html.erb~
+<img class="icones_agenda" src="/images/icones/calendario.png"> <%= consulta.data.strftime("%a, %d de %b de %Y") %><br/>
+<img class="icones_agenda" src="/images/icones/calendario.png"> <%= consulta.data.strftime("%H:%M") %><br/>
+=======
+<img class="icones_agenda" src="/images/icones/calendario.png"> <%= consulta.data %><br/>
+<img class="icones_agenda" src="/images/icones/hora.png"> <%= consulta.horario %><br/>
+>>>>>>> 8ab5e6443570716f1a38c15d8fc74e2a92a8d405:app/views/consultas/_sidebar.html.erb~
+    </div>
+<%end%>
+ 
+    
+</div>
+</div>
+
+<div class="block">
+  <h3>Links</h3>
+  <ul class="navigation">
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+  </ul>
+</div>
