@@ -49,11 +49,21 @@ ActiveRecord::Schema.define(:version => 20100916000303) do
 
   create_table "pacientes", :force => true do |t|
     t.string   "nome"
-    t.string   "endereco"
+    t.string   "rua"
+    t.string   "numero"
+    t.string   "complemento"
+    t.string   "bairro"
+    t.string   "cep"
+    t.string   "cidade"
+    t.string   "estado"
     t.string   "telefone"
     t.string   "celular"
     t.string   "rg"
     t.string   "cpf"
+    t.string   "email"
+    t.date     "data_de_nascimento"
+    t.string   "plano_de_saude"
+    t.string   "tipo_de_plano"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

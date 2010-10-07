@@ -1,10 +1,8 @@
 class PacientesController < ApplicationController
-    load_and_authorize_resource
   # GET /pacientes
   # GET /pacientes.xml
   def index
     @pacientes = Paciente.paginate :page => params[:page],  :per_page => 10
-    authorize! :read, @paciente
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +14,6 @@ class PacientesController < ApplicationController
   # GET /pacientes/1.xml
   def show
     @paciente = Paciente.find(params[:id])
-    authorize! :read, @paciente
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +35,6 @@ class PacientesController < ApplicationController
   # GET /pacientes/1/edit
   def edit
     @paciente = Paciente.find(params[:id])
-    unauthorized! if cannot? :edit, @paciente
 
   end
 

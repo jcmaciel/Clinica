@@ -1,5 +1,18 @@
 
 <script>
+var $sigla = "AA";
+
+ function carregaPlano(input) {
+
+$j.getJSON("http://localhost:3000/funcoes/busca_por_cep?cep=" + input, function (data) {
+        $j('#paciente_rua').val(data[0] + " " + data[1]);
+        $j('#paciente_bairro').val(data[2]);
+        $j('#paciente_cidade').val(data[4]);
+        $j('#paciente_estado').val(data[3]);
+
+});
+}
+
 var $j = jQuery.noConflict(); //evitar conflito com prototype
 
 $j(function(){

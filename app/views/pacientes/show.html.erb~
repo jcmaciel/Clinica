@@ -15,10 +15,29 @@
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Endereco")) %>:</b>
-          <%= @paciente.endereco %>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Rua")) %>:</b>
+          <%= @paciente.rua %>
         </p>
 
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Bairro")) %>:</b>
+          <%= @paciente.bairro %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "CEP")) %>:</b>
+          <%= @paciente.cep %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Cidade")) %>:</b>
+          <%= @paciente.cidade %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Estado")) %>:</b>
+          <%= @paciente.estado %>
+        </p>
         <p>
           <b><%= t("activerecord.attributes.paciente.telefone", :default => t("activerecord.labels.telefone", :default => "Telefone")) %>:</b>
           <%= @paciente.telefone %>
@@ -39,12 +58,8 @@
           <%= @paciente.cpf %>
         </p>
       <div class="wat-cf">
-  <% if can? :update, @paciente %>
         <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}")} #{t("web-app-theme.edit", :default=> "Editar")}", edit_paciente_path(@paciente), :class => "button" %> 
-    <%end%>
-  <% if can? :destroy, @paciente %>
         <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Excluir")}")} #{t("web-app-theme.delete", :default => "Excluir")}", paciente_path(@paciente), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Tem certeza que deseja excluir?")}" %>
-      <%end%>
       </div>      
     </div>
   </div>

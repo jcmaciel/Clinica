@@ -24,7 +24,7 @@ $j(function(){
 
   <div class="group">
     <%= f.label :data, t("activerecord.attributes.consulta.data", :default => "Data"), :class => :label %>
-    <%= f.datetime_select :data, :class => 'datetime_select', :start_year => Time.now.year,  :use_month_numbers => true ,:order => [:day, :month, :year] %>
+    <%= f.datetime_select :data, :class => 'datetime_select', :start_year => Time.now.year, :minute_step => 30 ,  :use_month_numbers => true ,:order => [:day, :month, :year] %>
   </div>
   
   <div class="group">

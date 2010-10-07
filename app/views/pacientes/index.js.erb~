@@ -1,0 +1,2 @@
+var $j = jQuery.noConflict(); //evitar conflito com prototype
+$j("#pacientes").html("<%= escape_javascript(render("pacientes")) %>");

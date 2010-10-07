@@ -15,10 +15,39 @@
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Endereco")) %>:</b>
-          <%= @paciente.endereco %>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Rua")) %>:</b>
+          <%= @paciente.rua %>
         </p>
 
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Numero")) %>:</b>
+          <%= @paciente.numero %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Complemento")) %>:</b>
+          <%= @paciente.complemento %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Bairro")) %>:</b>
+          <%= @paciente.bairro %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "CEP")) %>:</b>
+          <%= @paciente.cep %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Cidade")) %>:</b>
+          <%= @paciente.cidade %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.paciente.endereco", :default => t("activerecord.labels.endereco", :default => "Estado")) %>:</b>
+          <%= @paciente.estado %>
+        </p>
         <p>
           <b><%= t("activerecord.attributes.paciente.telefone", :default => t("activerecord.labels.telefone", :default => "Telefone")) %>:</b>
           <%= @paciente.telefone %>

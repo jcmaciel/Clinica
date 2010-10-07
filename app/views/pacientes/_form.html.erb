@@ -1,8 +1,23 @@
-<script>
+<script type="text/javascript" charset="utf-8">
+   var $j = jQuery.noConflict();
+var $sigla = "AA";
+
+ function carregaEndereco(input) {
+
+$j.getJSON("http://localhost:3000/funcoes/busca_por_cep?cep=" + input, function (data) {
+        $j('#paciente_rua').val(data[0] + " " + data[1]);
+        $j('#paciente_bairro').val(data[2]);
+        $j('#paciente_cidade').val(data[4]);
+        $j('#paciente_estado').val(data[3]);
+
+});
+}
+
 jQuery(function($){
    $("#paciente_telefone").mask("(99)9999-9999");
    $("#paciente_celular").mask("(99)9999-9999");
    $("#paciente_cpf").mask("999.999.999-99");
+   $("#paciente_rg").mask("99.999.999-9");
 });
 </script>
 
@@ -13,8 +28,45 @@ jQuery(function($){
   </div>
 
   <div class="group">
-    <%= f.label :endereco, t("activerecord.attributes.paciente.endereco", :default => "Endereco"), :class => :label %>
-    <%= f.text_field :endereco, :class => 'text_field' %>
+    <%= f.label :rua, t("activerecord.attributes.paciente.endereco", :default => "Rua"), :class => :label %>
+    <%= f.text_field :rua, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :numero, t("activerecord.attributes.paciente.endereco", :default => "Numero"), :class => :label %>
+    <%= f.text_field :numero, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :complemento, t("activerecord.attributes.paciente.endereco", :default => "Complemento"), :class => :label %>
+    <%= f.text_field :complemento, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :bairro, t("activerecord.attributes.paciente.endereco", :default => "Bairro"), :class => :label %>
+    <%= f.text_field :bairro, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+
+  <div class="group">
+    <%= f.label :cep, t("activerecord.attributes.paciente.endereco", :default => "CEP"), :class => :label %>
+    <%= f.text_field :cep, :class => 'text_field', :size =>"9", :onblur => "carregaEndereco(this.value);" %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :cidade, t("activerecord.attributes.paciente.endereco", :default => "Cidade"), :class => :label %>
+    <%= f.text_field :cidade, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :estado, t("activerecord.attributes.paciente.endereco", :default => "Estado"), :class => :label %>
+    <%= f.text_field :estado, :class => 'text_field' %>
     <span class="description">Ex: a simple text</span>
   </div>
 
@@ -42,6 +94,18 @@ jQuery(function($){
     <span class="description">Ex: a simple text</span>
   </div>
         
+  <div class="group">
+    <%= f.label :plano_de_saude, t("activerecord.attributes.paciente.cpf", :default => "Plano de Saúde"), :class => :label %>
+    <%= f.text_field :plano_de_saude, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :tipo_de_plano, t("activerecord.attributes.paciente.cpf", :default => "Tipo de Plano"), :class => :label %>
+    <%= f.text_field :tipo_de_plano, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
 <div class="group navform wat-cf">
   <button class="button" type="submit">
     <%= image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Salvar")}") %> <%= t("web-app-theme.save", :default => "Salvar") %>

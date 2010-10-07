@@ -1,0 +1,20 @@
+<script type="text/javascript" charset="utf-8">
+   var $j = jQuery.noConflict();
+var $sigla = "AA";
+
+ function carregaEndereco(input) {
+
+$j.getJSON("http://localhost:3000/funcoes/busca_por_cep?cep=" + input, function (data) {
+        $j('#paciente_rua').val(data[0] + " " + data[1]);
+        $j('#paciente_bairro').val(data[2]);
+        $sigla = data[3];
+});
+}
+
+jQuery(function($){
+   $("#paciente_telefone").mask("(99)9999-9999");
+   $("#paciente_celular").mask("(99)9999-9999");
+   $("#paciente_cpf").mask("999.999.999-99");
+});
+</script>
+

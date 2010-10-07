@@ -1,0 +1,5 @@
+class FuncaoController < ApplicationController
+  def busca_por_cep
+  end
+
+end

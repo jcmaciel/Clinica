@@ -1,3 +1,4 @@
+require 'brazilian-rails'
 class PacientesController < ApplicationController
   # GET /pacientes
   # GET /pacientes.xml
